@@ -47,7 +47,7 @@ const Signup = () => {
                 color: "teal",
               }}
             >
-              Signin
+              Sign in
             </span>
           </Typography>
         </Grid>
