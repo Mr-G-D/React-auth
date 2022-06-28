@@ -1,6 +1,40 @@
 import { Grid, Box, Typography, TextField, Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 const Signup = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    number: "",
+    password: "",
+  });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (formData.username === "") {
+      alert("Username is required");
+      return false;
+    }
+    if (formData.email === "") {
+      alert("Email is required");
+      return false;
+    }
+    if (formData.number === "") {
+      alert("Number is required");
+      return false;
+    }
+    if (formData.password === "") {
+      alert("password is required");
+      return false;
+    }
+    console.log(formData);
+    window.location.href = "/otp";
+  };
+
+  const handleChange = async (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   return (
     <Box
       style={{
@@ -40,20 +74,27 @@ const Signup = () => {
             variant="subtitle2"
           >
             Have an Account ?{" "}
-            <span
+            <Link
+              to="#"
               style={{
-                color: "teal",
+                textDecoration: "none",
               }}
             >
-              Sign in
-            </span>
+              <span
+                style={{
+                  color: "teal",
+                }}
+              >
+                Sign in
+              </span>
+            </Link>
           </Typography>
         </Grid>
       </Grid>
 
       <Box
+        onSubmit={handleSubmit}
         component="form"
-        noValidate
         style={{
           marginTop: "40px",
           marginBottom: "50px",
@@ -72,6 +113,8 @@ const Signup = () => {
             label="Email Address"
             name="email"
             autoComplete="email"
+            onChange={handleChange}
+            value={formData.email}
             autoFocus
           />
         </Grid>
@@ -85,6 +128,8 @@ const Signup = () => {
               fullWidth
               id="username"
               label="Username"
+              onChange={handleChange}
+              value={formData.username}
             />
           </Grid>
           <Grid className="input" item xs={12} sm={6}>
@@ -96,6 +141,8 @@ const Signup = () => {
               fullWidth
               id="number"
               label="Contact Number"
+              onChange={handleChange}
+              value={formData.number}
               name="number"
             />
           </Grid>
@@ -112,6 +159,8 @@ const Signup = () => {
             type="password"
             name="password"
             autoComplete="password"
+            onChange={handleChange}
+            value={formData.password}
           />
         </Grid>
 
