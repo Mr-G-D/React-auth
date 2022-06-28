@@ -4,6 +4,7 @@ import Signup from "./pages/Signup";
 import Header from "./components/Header";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Otp from "./pages/Otp";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Signup />} />
               <Route exact path="/otp" element={<Otp />} />
+              <Route exact path="/home" element={<Home />} />
             </Routes>
           </BrowserRouter>
         </Grid>
