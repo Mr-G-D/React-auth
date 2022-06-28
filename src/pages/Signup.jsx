@@ -120,7 +120,10 @@ const Signup = () => {
           fullWidth
           color="success"
           variant="contained"
-          sx={{ mt: 3, mb: 2 }}
+          style={{
+            width: "50%",
+          }}
+          sx={{ mt: 3, mb: 2, float: "right" }}
         >
           Sign up
         </Button>
