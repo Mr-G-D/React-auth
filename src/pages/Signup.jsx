@@ -14,7 +14,7 @@ const Signup = () => {
           justifyContent: "space-between",
         }}
       >
-        <Grid xs={8}>
+        <Grid item xs={8}>
           <Typography
             style={{
               textAlign: "left",
@@ -32,13 +32,11 @@ const Signup = () => {
           </Typography>
           <Typography variant="h4">Sign up</Typography>
         </Grid>
-        <Grid xs={4}>
+        <Grid item xs={4}>
           <Typography
             style={{
               textAlign: "-webkit-center",
             }}
-            item
-            xs={{}}
             variant="subtitle2"
           >
             Have an Account ?{" "}
@@ -87,7 +85,6 @@ const Signup = () => {
               fullWidth
               id="username"
               label="Username"
-              autoFocus
             />
           </Grid>
           <Grid className="input" item xs={12} sm={6}>
@@ -115,7 +112,6 @@ const Signup = () => {
             type="password"
             name="password"
             autoComplete="password"
-            autoFocus
           />
         </Grid>
 
@@ -126,7 +122,7 @@ const Signup = () => {
           variant="contained"
           sx={{ mt: 3, mb: 2 }}
         >
-          Sign In
+          Sign up
         </Button>
       </Box>
     </Box>

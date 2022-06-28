@@ -2,6 +2,8 @@ import "./App.css";
 import { Grid, Paper } from "@mui/material";
 import Signup from "./pages/Signup";
 import Header from "./components/Header";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Otp from "./pages/Otp";
 
 function App() {
   return (
@@ -22,20 +24,29 @@ function App() {
       >
         <Grid
           style={{
+            minHeight: "70vh",
             backgroundColor: "rgba(255,255,255,0.6)",
             borderRadius: "40px",
             margin: "40px",
             color: "black",
             opacity: "1",
+            display: "flex",
+            alignContent: "space-around",
+            justifyContent: "space-around",
           }}
           item
           xs={12}
           sm={6}
-          md={4}
+          md={3}
           elevation={6}
           component={Paper}
         >
-          <Signup />
+          <BrowserRouter>
+            <Routes>
+              <Route exact path="/" element={<Signup />} />
+              <Route exact path="/otp" element={<Otp />} />
+            </Routes>
+          </BrowserRouter>
         </Grid>
       </Grid>
     </div>
