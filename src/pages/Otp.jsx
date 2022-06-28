@@ -58,7 +58,7 @@ const Otp = () => {
           </Typography>
           <Typography variant="h4">OTP</Typography>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={4} md={5}>
           <Typography
             style={{
               textAlign: "-webkit-center",
