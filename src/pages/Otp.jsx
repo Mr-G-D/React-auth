@@ -1,6 +1,29 @@
 import { Grid, Box, Typography, Button, TextField } from "@mui/material";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Otp = () => {
+  const [otp, setOtp] = useState();
+
+  const handleChange = (event) => {
+    const { value } = event.target;
+    if (value.length <= 6) {
+      setOtp(value);
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!otp) {
+      alert("OTP is required");
+      return false;
+    } else if (otp.length <= 5) {
+      alert("OTP must 6 digits");
+      return false;
+    } else {
+      window.location.href = "/home";
+    }
+  };
   return (
     <Box
       style={{
@@ -33,7 +56,7 @@ const Otp = () => {
               ICWS
             </span>
           </Typography>
-          <Typography variant="h4">Sign up</Typography>
+          <Typography variant="h4">OTP</Typography>
         </Grid>
         <Grid item xs={4}>
           <Typography
@@ -43,18 +66,26 @@ const Otp = () => {
             variant="subtitle2"
           >
             Have an Account ?{" "}
-            <span
+            <Link
+              to="#"
               style={{
-                color: "teal",
+                textDecoration: "none",
               }}
             >
-              Sign in
-            </span>
+              <span
+                style={{
+                  color: "teal",
+                }}
+              >
+                Sign in
+              </span>
+            </Link>
           </Typography>
         </Grid>
       </Grid>
 
       <Box
+        onSubmit={handleSubmit}
         component="form"
         noValidate
         style={{
@@ -77,6 +108,8 @@ const Otp = () => {
             placeholder="0 0 0 0 0 0"
             autoComplete="otp"
             autoFocus
+            onChange={handleChange}
+            value={otp}
           />
           {/* <OtpInput
               className="textfield"
