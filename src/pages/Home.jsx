@@ -38,10 +38,8 @@ const Home = () => {
       </Grid>
 
       <Box
-        noValidate
         style={{
-          marginTop: "40px",
-          marginBottom: "100px",
+          margin: "100px 0",
         }}
       >
         <Button
