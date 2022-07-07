@@ -1,6 +1,7 @@
 import { Grid, Box, Typography, TextField, Button } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Input from "../components/Input";
 const Signup = () => {
   const [formData, setFormData] = useState({
     username: "",
@@ -8,6 +9,7 @@ const Signup = () => {
     number: "",
     password: "",
   });
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (formData.username === "") {
@@ -101,54 +103,46 @@ const Signup = () => {
         }}
       >
         <Grid className="input">
-          <Typography variant="body2">
+          {/* <Typography variant="body2">
             Enter your username or email address
-          </Typography>
-          <TextField
-            className="textfield"
-            margin="normal"
-            required
-            fullWidth
+          </Typography> */}
+
+          <Input
+            type="email"
             id="email"
             label="Email Address"
             name="email"
             autoComplete="email"
-            onChange={handleChange}
+            action={handleChange}
             value={formData.email}
-            autoFocus
           />
         </Grid>
         <Grid container spacing={2}>
           <Grid className="input" item xs={12} sm={6}>
-            <Typography variant="body2">User name</Typography>
-            <TextField
-              className="textfield"
-              name="username"
-              required
-              fullWidth
+            {/* <Typography variant="body2">User name</Typography> */}
+            <Input
+              type="text"
               id="username"
               label="Username"
-              onChange={handleChange}
+              name="username"
+              action={handleChange}
               value={formData.username}
             />
           </Grid>
           <Grid className="input" item xs={12} sm={6}>
-            <Typography variant="body2">Contact Number</Typography>
-            <TextField
-              className="textfield"
+            {/* <Typography variant="body2">Contact Number</Typography> */}
+            <Input
               type="number"
-              required
-              fullWidth
               id="number"
               label="Contact Number"
-              onChange={handleChange}
+              action={handleChange}
               value={formData.number}
               name="number"
             />
           </Grid>
         </Grid>
         <Grid className="input">
-          <Typography variant="body2">Enter your password</Typography>
+          {/* <Typography variant="body2">Enter your password</Typography> */}
           <TextField
             className="textfield"
             margin="normal"

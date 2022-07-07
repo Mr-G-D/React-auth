@@ -1,6 +1,7 @@
 import { Grid, Box, Typography, Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Input from "../components/Input";
 
 const Otp = () => {
   const [otp, setOtp] = useState();
@@ -97,18 +98,14 @@ const Otp = () => {
           <Typography variant="body2">
             Please enter the provided otp here
           </Typography>
-          <TextField
-            className="textfield"
-            margin="normal"
-            required
-            fullWidth
-            id="otp"
+
+          <Input
+            placeholder="0 0 0 0 0 0"
+            autoFocus
             type="number"
             name="otp"
-            placeholder="0 0 0 0 0 0"
-            autoComplete="otp"
-            autoFocus
-            onChange={handleChange}
+            id="otp"
+            action={handleChange}
             value={otp}
           />
           {/* <OtpInput
